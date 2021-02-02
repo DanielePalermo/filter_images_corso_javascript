@@ -1,0 +1,102 @@
+<html>
+<head>
+<script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+<style>
+.box{
+    margin:5px;
+    padding:5px;
+    float:left;
+}
+</style>
+<script>
+
+$(document).ready(function(){
+
+	$("input[type='checkbox']").on("change",function(){
+	    mostra = [];
+	    nascondi = [];
+	    $("input[type='checkbox']:checked").each(function(){
+		mostra.push(this.id);
+	    });
+	    $("input[type='checkbox']:not(:checked)").each(function(){
+		nascondi.push(this.id);
+	    })
+	    $(".box").each(function(){
+		mostrare = false;
+		for(i=0;i<mostra.length;i++)
+		{
+		    if($(this).hasClass(mostra[i]))
+		    {
+			mostrare = true;
+		    }
+		}
+		for(i=0;i<nascondi.length;i++)
+		{
+		    console.log(mostra[i]);
+		    if($(this).hasClass(nascondi[i]))
+		    {
+			mostrare = false;
+		    }
+		}
+		if(mostrare)
+		{
+		    $(this).fadeIn();
+		}
+		else
+		{
+		    $(this).fadeOut();
+		}
+	    });
+	});
+
+});
+</script>
+</head>
+<body>
+<div style="width:100%;margin:20px 30%;">
+<input type="checkbox" checked id="neve">NEVE
+<input type="checkbox" checked id="lago">LAGO
+<input type="checkbox" checked id="mattina">MATTINA
+<input type="checkbox" checked id="tramonto">TRAMONTO
+</div>
+<div class="box tramonto">
+<img src="img/tramonto.jpg">
+</div>
+<div class="box lago mattina">
+<img src="img/lago_mattina.jpg">
+</div>
+<div class="box lago mattina">
+<img src="img/lago_mattina_2.jpg">
+</div>
+<div class="box lago mattina">
+<img src="img/lago_mattina_3.jpg">
+</div>
+<div class="box neve lago">
+<img src="img/neve_lago.jpg">
+</div>
+<div class="box neve mattina">
+<img src="img/neve_mattina.jpg">
+</div>
+<div class="box neve mattina">
+<img src="img/neve_mattina_2.jpg">
+</div>
+<div class="box neve mattina">
+<img src="img/neve_mattina_3.jpg">
+</div>
+<div class="box neve mattina">
+<img src="img/neve_mattina_4.jpg">
+</div>
+<div class="box neve tramonto">
+<img src="img/neve_tramonto.jpg">
+</div>
+<div class="box neve tramonto">
+<img src="img/neve_tramonto_2.jpg">
+</div>
+<div class="box neve tramonto">
+<img src="img/neve_tramonto_4.jpg">
+</div>
+</body>
+</html>
